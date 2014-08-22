@@ -9,7 +9,11 @@ mongo_obj_id_settings = {
 class BoopyBoop():
 	def __init__(self, words=None, settings=None):
 		if words == None:
-			self.words = ["boopy","boop","word","letter","number","person","pen","class","people","sound","water","side","place","man","men","woman","women","boy","girl","year","day","week","month","name","sentence","line","air","land","home","hand","house","picture","animal","mother","father","brother","sister","world","head","page","country","question","answer","school","plant","food","sun","state","eye","city","tree","farm","story","sea","night","day","life","north","south","east","west","child","children","example","paper","music","river","car","foot","feet","book","science","room","friend","idea","fish","mountain","horse","watch","color","face","wood","list","bird","body","dog","family","song","door","product","wind","ship","area","rock","order","fire","problem","piece","top","bottom","king","space"]
+			#criteria:
+			#not abstract, but concrete. must be able to sense it directly
+			#not about people, but about things that are not people
+			#about 100 of them: currently 35
+			self.words = ["boopy","boop","pen","pencil","water","air","steam","wind","land","rock","steel","house","cat","school","plant","sun","star","tree","farm","sea","paper","chair","music","river","car","book","room","fish","mountain","horse","wood","bird","dog","song","door","ship","fire","bow","spoon","fork","roof","apple","cloth","wheat","boat","gold","drum","flute","ball","cube","triangle","square","hill","orange","grape","iron","brush"]
 		else:
 			self.words = words
 		if settings == None:
@@ -27,6 +31,16 @@ class BoopyBoop():
 			words.append(self.words[word_idx])
 		return words
 
+	def string_to_id(self, word_arr):
+		id_num = 0
+		for word in word_arr:
+			id_num += self.words.index(word)
+			id_num *= self.len_words
+		#return the string formatted hex version, in the case of mongodb
+
+
 if __name__ == "__main__":
 	boop = BoopyBoop()
-	print boop.id_to_string("23423412affeec")
+	print boop.id_to_string("507f1f77bcf86cd799439011")
+	print len(boop.id_to_string("507f1f77bcf86cd799439011"))
+	print boop.len_words
