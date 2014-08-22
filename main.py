@@ -13,11 +13,12 @@ class BoopyBoop():
 		else:
 			self.words = words
 		if settings == None:
-			self.settings = {}
+			self.settings = mongo_obj_id_settings
 		else:
 			self.settings = settings
 
 	def id_to_string(self, id_string):
+		assertions as to the proper length and stuff of things
 		convert id string to normal number
 		xor with some large constant
 
