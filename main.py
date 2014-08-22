@@ -2,8 +2,8 @@ import string
 import sys
 
 mongo_obj_id_settings = {
-		length: 24,
-		alphabet: string.hexdigits
+		"length": 24,
+		"alphabet": string.hexdigits
 		}
 
 class BoopyBoop():
@@ -16,13 +16,17 @@ class BoopyBoop():
 			self.settings = mongo_obj_id_settings
 		else:
 			self.settings = settings
+		self.len_words = len(self.words)
 
 	def id_to_string(self, id_string):
-		assertions as to the proper length and stuff of things
-		convert id string to normal number
-		xor with some large constant
+		id_num = int(id_string, base=len(self.settings["alphabet"]))
+		words = []
+		while id_num > self.len_words:
+			word_idx = id_num % self.len_words
+			id_num = id_num // self.len_words
+			words.append(self.words[word_idx])
+		return words
 
 if __name__ == "__main__":
-	id_arg = sys.argv[1]
-	BoopyBoop()
-	print str
+	boop = BoopyBoop()
+	print boop.id_to_string("23423412affeec")
