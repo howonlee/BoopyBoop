@@ -54,6 +54,9 @@ class BoopyBoop():
 		return self.base_conv.encode(id_num)
 
 if __name__ == "__main__":
+	"""
+	This is a test: use it as an example of usage
+	"""
 	boop = BoopyBoop()
 	boop_res = boop.id_to_string("507f1f77bcf86cd799439011")
 	print boop_res
