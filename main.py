@@ -1,5 +1,5 @@
 import string
-import sys
+import sys, collections
 from baseconv import BaseConverter
 
 MONGO_OBJ_ID_SETTINGS = {
@@ -19,7 +19,9 @@ class BoopyBoop():
 			#not abstract, but concrete. must be able to sense it directly
 			#not about people, but about things that are not people
 			#about 100 of them: currently 35
-			self.words = ["pen","pencil","water","air","steam","wind","land","rock","steel","house","cat","school","plant","sun","star","tree","farm","sea","paper","chair","music","river","car","book","room","fish","mountain","horse","wood","bird","dog","song","door","ship","fire","bow","spoon","fork","roof","apple","cloth","wheat","boat","gold","drum","flute","ball","cube","triangle","square","hill","orange","grape","iron","brush"]
+			self.words = ["pen","pencil","water","air","steam","wind","land","rock","steel","house","cat","school","plant","sun","star","tree","farm","sea","paper","chair","music","river","car","book","room","fish","mountain","horse","wood","bird","dog","song","door","ship","fire","bow","spoon","fork","roof","apple","cloth","wheat","boat","gold","drum","flute","ball","cube","triangle","square","hill","orange","grape","iron","brush","azure","periwinkle","burnet","diamond","goldenrod","maroon","ochre","saffron","pepper","croissant","bearclaw","pie","cake","bag","cookie","donut","quiche","custard","salt","carrot","spinach","broccoli","asparagus","wool","egg","butter","rice","dark","light","hut","shack","castle","pyramid","igloo","salon","ranch","pagoda","abbey","tavern","stadium","factory","bank","manor","stables","vineyard","porch","well","closet","corridor","fireplace","tie","belt","gloves","tea","coffee","soda","macaroni","gyro","almonds","waffles","hamburger","bookcase","mattress","tuba","saxophone","accordion","metronome","banjo","kazoo","dulcimer","viola","harp","oboe","cave","duck","tomato","bananas","lettuce","cabbage","onions","elm","palm","maple","arrow","pickax","doll","balloon","vase","typewriter","desk","chalk","galleon","frigate","gondola","dinghy","canoe","train","buggy","firetruck","harbor","pond","brook","waterfall","sleet","snow","fog"]
+			print [x for x, y in collections.Counter(self.words).items() if y > 1]
+			assert len(list(set(self.words))) == len(self.words)
 		else:
 			self.words = words
 		if settings == None:
