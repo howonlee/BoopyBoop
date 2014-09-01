@@ -2,7 +2,7 @@ from setuptools import setup, find_packages  # Always prefer setuptools over dis
 
 setup(
 	name='boopyboop',
-	version="0.0.4",
+	version="0.0.7",
 	description="Turn long numbers in whatever format to human-readable long series of words",
 	url="https://github.com/howonlee/boopyboop",
 	author="Howon Lee",
